@@ -8,7 +8,7 @@ import {
 	br,
 	strong,
 	span,
-} from "./lib/components";
+} from "./lib/index.ts";
 
 export const Counter = Component(() => {
 	const onClick = mut<MouseEvent>();
