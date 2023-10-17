@@ -1,5 +1,8 @@
-import type { Signal } from "../../signals";
+import type { Signal } from "@mod.js/signals";
 import type { Mountable } from "../types";
+import { Component } from "..";
+import { Fragment } from "./fragment";
+import { RenderContext } from "./context";
 
 export interface IfProps<Context> {
 	cond: Signal<boolean>;
@@ -7,7 +10,7 @@ export interface IfProps<Context> {
 	else?: Mountable<Context>;
 }
 
-export const If = <Context>({
+const IfInner = <Context>({
 	cond,
 	then,
 	else: else_,
@@ -25,3 +28,8 @@ export const If = <Context>({
 		};
 	},
 });
+
+export const If = Component(
+	<Context extends RenderContext>(props: IfProps<Context>) =>
+		Fragment([IfInner(props)]),
+);

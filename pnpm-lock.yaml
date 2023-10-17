@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  '@mod.js/signals':
+    specifier: ^0.0.13
+    version: 0.0.13
+
 devDependencies:
   prettier:
     specifier: ^3.0.3
@@ -214,6 +219,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@mod.js/signals@0.0.13:
+    resolution: {integrity: sha512-DoHD02P1leamCw70391UChaexsb2F0ladmcNtEyQEdXvodTuNMfct4eBKhg1nzEgu639xIBHCOmw/fZSy/BLhA==}
+    dev: false
 
   /esbuild@0.18.20:
     resolution: {integrity: sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA==}

@@ -1,4 +1,4 @@
-import { cons, mut } from "./lib/signals/";
+import { cons, mut } from "@mod.js/signals";
 import {
 	Component,
 	DomText,
@@ -35,19 +35,27 @@ export const Counter = Component(() => {
 			}),
 			br(),
 			p({
+				children: [
+					If({
+						cond: isEven,
+						then: strong({
+							children: [
+								DomText({ text: cons("The number is even") }),
+							],
+						}),
+						else: span({
+							children: [
+								DomText({ text: cons("The number is odd") }),
+							],
+						}),
+					}),
+				],
+			}),
+			p({
 				children: [DomText({ text: doubledText })],
 			}),
 			p({
 				children: [DomText({ text: aggregateStr })],
-			}),
-			If({
-				cond: isEven,
-				then: strong({
-					children: [DomText({ text: cons("The number is even") })],
-				}),
-				else: span({
-					children: [DomText({ text: cons("The number is odd") })],
-				}),
 			}),
 		],
 	});

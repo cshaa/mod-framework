@@ -1,10 +1,10 @@
-import { cons } from "../../signals/cons.ts";
-import { Signal } from "../../signals/readable.ts";
 import {
+	cons,
+	Signal,
 	MinimalSignal,
 	MinimalWritableSignal,
 	WriteonlySignal,
-} from "../../signals/types.ts";
+} from "@mod.js/signals";
 import {
 	coerceToSignal,
 	type InOutProp,
@@ -12,7 +12,7 @@ import {
 	type Mountable,
 	type OutProp,
 } from "../types.ts";
-import type { DomContext } from "./types.ts";
+import { DomContext } from "./context.ts";
 
 export interface DomElementProps {
 	tag: InProp<string>;
@@ -160,7 +160,10 @@ export const DomElement = ({
 				}
 
 				// mount children
-				const childContext = { ...ctx, domParent: el };
+				const childContext = {
+					...ctx,
+					...DomContext({ document: domDocument, root: el }),
+				};
 				for (const child of children ?? []) {
 					defer(child.mount(childContext));
 				}

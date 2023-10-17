@@ -4,7 +4,7 @@ import {
 	type MinimalWritableSignal,
 	Signal,
 	cons,
-} from "../signals";
+} from "@mod.js/signals";
 
 export type InProp<T> = MinimalSignal<T> | T;
 export type OutProp<T> = WriteonlySignal<T>;

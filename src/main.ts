@@ -2,6 +2,7 @@ import "./style.css";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { Counter } from "./counter.ts";
+import { DomContext } from "./lib/components/index.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
@@ -20,7 +21,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   </div>
 `;
 
-Counter({}).mount({
-	domDocument: document,
-	domParent: document.querySelector<HTMLButtonElement>("#root")!,
-});
+Counter({}).mount(
+	DomContext({
+		document,
+		root: "#root",
+	}),
+);

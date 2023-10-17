@@ -1,5 +1,5 @@
 import { type Mountable } from "../types.ts";
-import { cons, type Signal } from "../../signals";
+import { cons, type Signal } from "@mod.js/signals";
 import {
 	HtmlAttributesTagNameMap,
 	HtmlTagName,

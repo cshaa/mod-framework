@@ -1,6 +1,6 @@
 import type { Component } from "../types.js";
-import type { Signal } from "../../signals/index.js";
-import type { DomContext } from "./types.ts";
+import type { Signal } from "@mod.js/signals";
+import type { DomContext } from "./context.ts";
 
 export interface DomTextProps {
 	text: Signal<string>;
